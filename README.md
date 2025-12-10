@@ -5,8 +5,11 @@ A C++ encryption and decryption program
 ## Features
 
 1. Encryption keys
-2. Text Encryption (in progress)
-3. Text Decryption (in progress)
+User picks a password, password gets turned to hash, hash is used as encryption key.
+
+3. Text Encryption (in progress)
+
+5. Text Decryption (in progress)
 
 ## TO-DO:
 
