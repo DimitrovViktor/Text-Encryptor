@@ -1,6 +1,6 @@
 # Text Encryptor
 
-A C++ encryption and decryption program 
+A C++ text encryption and decryption tool using hashed psaswords as encryption keys
 
 ## Features
 
