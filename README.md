@@ -12,6 +12,10 @@ User picks a password, password gets turned to hash, hash is used as encryption 
 
 5. Text Decryption (in progress)
 
+## Libraries used:
+
+- Argon (hashing)
+
 ## TO-DO:
 
 - Text Encryption through unique word combinations, e.g. "word1,word2" (they will serve as encryption keys)
