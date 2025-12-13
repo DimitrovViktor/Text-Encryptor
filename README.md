@@ -18,6 +18,7 @@ User picks a password, password gets turned to hash, hash is used as encryption 
 
 ## TO-DO:
 
-- Text Encryption through unique word combinations, e.g. "word1,word2" (they will serve as encryption keys)
+- Text Encryption through unique word combinations, e.g. "word1,word2" (encryption keys)
+- Different alphabets for encrypted text mixed into one message with salt (e.g. Cyrillic, Arabic)
 - Text Decryption
 - UI
