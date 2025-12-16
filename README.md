@@ -10,11 +10,14 @@ User picks a password, password gets turned to hash, hash is used as encryption 
 
 3. Text Encryption (in progress)
 
+Text(unencrypted) and password hash are taken, text is encrypted based on password.
+
 5. Text Decryption (in progress)
 
 ## Libraries used:
 
 - Argon (hashing)
+- Libsodium (encryption)
 
 ## TO-DO:
 
