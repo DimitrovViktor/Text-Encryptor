@@ -21,7 +21,6 @@ Text(unencrypted) and password hash are taken, text is encrypted based on passwo
 
 ## TO-DO:
 
-- Text Encryption through unique word combinations, e.g. "word1,word2" (encryption keys)
 - Different alphabets for encrypted text mixed into one message with salt (e.g. Cyrillic, Arabic)
 - salt at the start and end of encrypted text baseed on password
 - Text Decryption
