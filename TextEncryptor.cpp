@@ -12,14 +12,18 @@ std::string encryptor(std::string encrKey, std::string normText, std::vector<uns
 
 std::string getHash(const char* encoded);
 
+std::string decryptor(std::string encrKey, std::string encrText, std::vector<unsigned char> hash);
+
 int main()
 {
     if (sodium_init() < 0) {
         std::cout << "sodium didn't load";
     }
     std::string encrKey;
+
     std::string normText;
     std::string encrText;
+    std::string decrText;
 
     std::string hashPass;
 
@@ -29,11 +33,11 @@ int main()
 
     // Get password hash
     std::vector<unsigned char> hash = hashings(encrKey);
-    
+
 
     // Get text to encrypt
     std::cout << "Enter text:\n";
-    std::getline(std::cin,normText);
+    std::getline(std::cin, normText);
 
     const char* charKey = normText.c_str();
 
@@ -41,7 +45,12 @@ int main()
     encrText = encryptor(encrKey, normText, hash);
 
     // Print encrypted text
-    std::cout << "test text:\n" << encrText << "\n";
+    std::cout << "encrypted text:\n" << encrText << "\n";
+
+    decrText = decryptor(encrKey, encrText, hash);
+
+    std::cout << "decrypted text:\n" << decrText << "\n";
+
 
     std::getline(std::cin, encrText);
 }
@@ -108,4 +117,41 @@ std::string encryptor(std::string encrKey, std::string normText, std::vector<uns
         sodium_base64_VARIANT_ORIGINAL);
 
     return std::string(b64);
+}
+
+std::string decryptor(std::string encrKey, std::string encrText, std::vector<unsigned char> hash) {
+
+    // Decode base64
+    std::vector<unsigned char> decoded(encrText.size());
+    size_t decoded_len;
+    if (sodium_base642bin(
+            decoded.data(), decoded.size(),
+            encrText.c_str(), encrText.size(),
+            nullptr, &decoded_len, nullptr,
+            sodium_base64_VARIANT_ORIGINAL) != 0) {
+        std::cout << "Base64 decode failed\n";
+        return "";
+    }
+    decoded.resize(decoded_len);
+
+    // Extract nonce + cyphertext
+    if (decoded.size() < crypto_secretbox_NONCEBYTES + crypto_secretbox_MACBYTES) {
+        std::cout << "Ciphertext too short\n";
+        return "";
+    }
+    const unsigned char* nonce = decoded.data();
+    const unsigned char* ciphertext = decoded.data() + crypto_secretbox_NONCEBYTES;
+    size_t ciphertext_len = decoded.size() - crypto_secretbox_NONCEBYTES;
+
+    // Decrypt
+    std::vector<unsigned char> decrypted(ciphertext_len - crypto_secretbox_MACBYTES);
+    if (crypto_secretbox_open_easy(
+            decrypted.data(),
+            ciphertext, ciphertext_len,
+            nonce, hash.data()) != 0) {
+        std::cout << "Decryption failed\n";
+        return "";
+    }
+
+    return std::string((char*)decrypted.data(), decrypted.size());
 }
