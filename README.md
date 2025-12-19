@@ -8,11 +8,13 @@ A C++ text encryption and decryption tool using hashed passwords as encryption k
 
 User picks a password, password gets turned to hash, hash is used as encryption key.
 
-3. Text Encryption (in progress)
+2. Text Encryption (in progress)
 
 Text(unencrypted) and password hash are taken, text is encrypted based on password.
 
-5. Text Decryption (in progress)
+3. Text Decryption (in progress)
+
+Text(encrypted) and password hash are taken, text is decrypted based on password.
 
 ## Libraries used:
 
