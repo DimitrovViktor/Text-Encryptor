@@ -24,10 +24,11 @@ Text(encrypted) and password hash are taken, text is decrypted based on password
 - Encryption
 - Decryption
 
-## Libraries used:
+## Libraries and Frameworks used:
 
 - Argon (hashing)
 - Libsodium (encryption)
+- Qt (UI)
 
 ## TO-DO:
 
