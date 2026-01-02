@@ -34,4 +34,3 @@ Text(encrypted) and password hash are taken, text is decrypted based on password
 
 - Different alphabets for encrypted text mixed into one message with salt (e.g. Cyrillic, Arabic)
 - salt at the start and end of encrypted text baseed on password
-- UI
