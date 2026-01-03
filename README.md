@@ -18,6 +18,8 @@ Text(encrypted) and password hash are taken, text is decrypted based on password
 
 ## UI (in progress)
 
+Using Qt
+
 ![UI](https://github.com/user-attachments/assets/275e471e-0ddd-49ac-a43b-9a115bc69fd5)
 
 - Password selection
