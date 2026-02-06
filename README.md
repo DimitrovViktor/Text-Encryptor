@@ -16,7 +16,7 @@ Text(unencrypted) and password hash are taken, text is encrypted based on passwo
 
 Text(encrypted) and password hash are taken, text is decrypted based on password.
 
-## UI (in progress)
+## UI (future work)
 
 Using Qt
 
