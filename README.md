@@ -1,6 +1,15 @@
-# Text Encryptor
+# <div align="center"> Text Encryptor </div>
+
+<div align="center">
+
+[![C++](https://img.shields.io/badge/C++-%2300599C.svg?logo=c%2B%2B&logoColor=white)](#)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 A C++ text encryption and decryption tool using hashed passwords as encryption keys
+
+</div>
+
+---
 
 ## Features
 
