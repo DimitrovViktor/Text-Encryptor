@@ -44,4 +44,4 @@ Using Qt
 ## TO-DO:
 
 - Different alphabets for encrypted text mixed into one message with salt (e.g. Cyrillic, Arabic)
-- salt at the start and end of encrypted text baseed on password
+- salt at the start and end of encrypted text based on password
