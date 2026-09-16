@@ -1,7 +1,0 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-    <Platform Name="x86" />
-  </Configurations>
-  <Project Path="TextEncryptor.vcxproj" Id="25105195-22b7-46a6-a75d-5a0b70a5feff" />
-</Solution>
