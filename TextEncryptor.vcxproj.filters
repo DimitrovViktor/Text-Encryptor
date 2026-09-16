@@ -19,4 +19,14 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="argon\argon2.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="argon\Argon2OptDll.dll">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

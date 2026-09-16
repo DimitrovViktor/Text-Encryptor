@@ -1,5 +1,21 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+# Visual Studio
+.vs/
+x64/
+*.vcxproj.user
+*.vcxproj.filters
 
-/.vs/TextEncryptor.slnx/copilot-chat/dc578cf7/sessions
+# VS build artifacts
+TextEncryptor/
+
+# Libraries (root)
+argon/
+libsodium/
+
+# Qt build output
+Qt/Encryptor/build/
+Qt/Encryptor/.qtcreator/
+Qt/Encryptor/CMakeLists.txt.user
+
+# Qt libraries
+Qt/Encryptor/argon/
+Qt/Encryptor/sodium/

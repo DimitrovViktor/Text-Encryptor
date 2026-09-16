@@ -120,14 +120,24 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>F:\Project Repos\TextEncryptor\libsodium</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>F:\Project Repos\TextEncryptor\argon;%(AdditionalLibraryDirectories);F:\Project Repos\TextEncryptor\libsodium\v143\dynamic</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Argon2OptDll.lib;%(AdditionalDependencies);libsodium.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TextEncryptor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="argon\argon2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="argon\Argon2OptDll.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
