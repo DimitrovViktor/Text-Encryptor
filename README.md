@@ -1,47 +1,43 @@
-# <div align="center"> Text Encryptor </div>
+# <div align = "center"> TextEncryptor </div>
 
 <div align="center">
 
 [![C++](https://img.shields.io/badge/C++-%2300599C.svg?logo=c%2B%2B&logoColor=white)](#)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-A C++ text encryption and decryption tool using hashed passwords as encryption keys
+C++ application for encrypting and decrypting text using Argon2 password hashing and libsodium symmetric encryption, with a Qt6 GUI.
 
 </div>
 
 ---
 
+![App](https://github.com/user-attachments/assets/3014c896-83e1-4084-930e-df3f3db0702d)
+
+---
+
 ## Features
 
-1. Encryption keys
+Password based encryption using Argon2id key derivation and libsodium's secretbox. Encrypted output uses a multi alphabet encoding where each byte maps to a character. The character mapping is derived from the password hash, making the encoding itself password dependent and adding an extra layer of obfuscation.
 
-User picks a password, password gets turned to hash, hash is used as encryption key.
 
-2. Text Encryption (in progress)
+## How it works
 
-Text(unencrypted) and password hash are taken, text is encrypted based on password.
+The user sets a password which is hashed with Argon2id to derive a key. The hash also seeds a deterministic shuffle of a character pool across six alphabets, producing a unique lookup table. 
 
-3. Text Decryption (in progress)
+Text is encrypted with libsodium secretbox, then each byte of the result is mapped through the shuffled table. Decryption reverses both layers. Without the correct password, neither the character mapping nor the ciphertext can be reversed.
 
-Text(encrypted) and password hash are taken, text is decrypted based on password.
+## Qt GUI version
 
-## UI (future work)
+![UI](https://github.com/user-attachments/assets/97c724fd-e968-4952-9fa5-0108aa8f8087)
 
-Using Qt
+The Qt6 desktop application is in the `Qt/Encryptor/` directory. It provides password setting with lock/change functionality, side by side text areas for unencrypted and encrypted text, status bar feedback, and a fully resizable layout.
 
-![UI](https://github.com/user-attachments/assets/275e471e-0ddd-49ac-a43b-9a115bc69fd5)
 
-- Password selection
-- Encryption
-- Decryption
+## Libraries used
 
-## Libraries and Frameworks used:
+- **Argon2** — password hashing (Argon2id variant)
+- **libsodium** — symmetric encryption (secretbox), nonce generation, base64 utilities
 
-- Argon (hashing)
-- Libsodium (encryption)
-- Qt (UI)
+## CLI version
 
-## TO-DO:
-
-- Different alphabets for encrypted text mixed into one message with salt (e.g. Cyrillic, Arabic)
-- salt at the start and end of encrypted text based on password
+The original CLI version is in `TextEncryptor.cpp` at the project root. It uses the same Argon2 + libsodium encryption but with standard base64 output and command-line input/output.
